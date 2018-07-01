@@ -1,4 +1,4 @@
-* {
+ * {
     box-sizing: border-box;
 }
 body {
@@ -22,39 +22,39 @@ body {
     background: rgba(192, 192, 192, 0.25); 
     height: 100px;
     font-size: 24px;
-    letter-spacing: 2px 
+    letter-spacing: px 
 }
 #nav-home {
     opacity: 1.0; 
     color: black;
     font-weight: 900;
     font-size: 24px;
+    letter-spacing: 2px;
+    z-index: 11;
 }
 #nav-anchors {
     background-color: rgba(160, 160, 160, 0.5);
-    width: 50%;
+    width: 37%;
+    align-content: center;
 }
 a:hover {
     background-color: rgba(184, 184, 184, 0.75);
 }
 #input {
-    opacity: 1.0;5
+    opacity: 1.0;
 }
 #card-background-1 {
-    height: 700px;
     width: 500px;
     background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
 }
 #card-background-2 {
-    width: 800px;
     background: rgba(0, 0, 0, 0.5);
     z-index: -1;
 }
 .col {
     width: 100%
 }  
-#label-1 {
+label {
     font-weight: bold;
     font-size: 24px;
     color: white;    
@@ -64,26 +64,12 @@ a:hover {
     margin: auto;
     z-index: -1;
 }
-#flight-box,
-#hotel-box {
-    box-sizing: content-box;
-    background: white;
-    height: 125px;
-    width: 1000px;
-    border: 5px solid blue;
-    padding: 30px;
-    margin: auto;
-    position: relative;
-}
 #sing-pic {
     height: 185px; 
     position: absolute;
     z-index: 2;
     top: 0%;
     left: 0%    
-}
-#nav-home {
-    z-index: 11;
 }
 #check-in-out {
     text-align: center; 
@@ -92,38 +78,39 @@ a:hover {
     width: 450px;
     align-content: center;
 }
-#stops,
-#bags,
-#airport,
-#price,
-#checkInTime,
-#checkOutTime,
-#guestRting {
+#company-name,
+#user-ratings,
+#phone-num,
+#hours-op,
+#price {
     text-align: right;
     color: green
 }
-#check-list {
+#check-list,
+#list-input{
     max-width: 1000px;
-    
 }
 #list-form {
     font-weight: 900;
     font-size: 24px;
     color: white;    
 }
-#list-input {
-    max-width: 960px;
-}
 .activities-form-page {
-    margin-left: 125px;
+    margin: 0px 120px 0px 125px
 }
 #login-menu {
-    background: rgba(192, 192, 192, 0.75);
+    background: rgba(192, 192, 192, 0.9);
+    z-index: 5;
 }
 #label-user-form {
     font-weight: 900;
 }
+#buckit-add-btn
+ {
+    font-weight: 700;
+    float: right;
+}
 
 
 
-
+ 
