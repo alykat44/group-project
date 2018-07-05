@@ -10,11 +10,9 @@
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
 </head>
 
@@ -31,18 +29,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown" id="pages">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" id="nav-home" href="flights.html">Flights
+              <a class="nav-link" id="nav-home" href="activities.html">Activities
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="nav-home" href="hotels.html">Hotels</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="nav-home" href="activities.html">Activities</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="nav-home" href="tripinfo.html">Trip Info</a>
+              <a class="nav-link" id="nav-home" href="BucketList.html">BucketList</a>
             </li>
             <li class="nav-item dropdown dropright">
               <a class="nav-link dropdown-toggle" id="nav-home" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -79,7 +71,7 @@
     </div>
   </header>
 
-
+  <!-- user inputs search for bucket list queries -->
   <br>
   <br>
   <div class="activities-form-page">
@@ -94,24 +86,13 @@
         <button type="submit" class="btn btn-primary" id="sub-btn-act">Submit</button>
         <br>
         <br>
+        <container class="card-magic">
 
-        <div class="list-group">
-          <ul class="list-group" id="check-list">
-            <li class="list-group-item">
-              <input type="checkbox">Parachute out of an airplane!</li>
-            <li class="list-group-item">
-              <input type="checkbox">Drive a racecar at a Speedway!</li>
-            <li class="list-group-item">
-              <input type="checkbox">Eat at Lou Malnotti's!</li>
-            <li class="list-group-item">
-              <input type="checkbox">Ride a Sailboat!</li>
-            <li class="list-group-item">
-              <input type="checkbox">Go to Guggenheim Museum!</li>
-            <li class="list-group-item">
-          </ul>
-        </div>
+        </container>
       </div>
+
     </div>
+  </div>
   </div>
 
 
@@ -129,7 +110,8 @@
 
 
 
-  <!-- <script type="text/javascript" src="./assets/javascript/app.js"></script> -->
+
+  <script type="text/javascript" src="./assets/javascript/app.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
