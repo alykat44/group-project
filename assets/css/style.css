@@ -15,14 +15,13 @@ body {
     background-repeat: repeat;
     background-position: center;
     z-index: 10;
-    padding: 0px 0px 0px 0px;
 }
 .navbar {
     z-index: 0;
-    background: rgba(192, 192, 192, 0.25); 
+    background: rgba(192, 192, 192, 0.65); 
     height: 100px;
     font-size: 24px;
-    letter-spacing: px 
+    letter-spacing: 2px; 
 }
 #nav-home {
     opacity: 1.0; 
@@ -33,12 +32,12 @@ body {
     z-index: 11;
 }
 #nav-anchors {
-    background-color: rgba(160, 160, 160, 0.5);
-    width: 37%;
+    background-color: rgba(160, 160, 160, 0.75);
+    width: 40%;
     align-content: center;
 }
 a:hover {
-    background-color: rgba(184, 184, 184, 0.75);
+    background-color: rgba(184, 184, 184, 0.8);
 }
 #input {
     opacity: 1.0;
@@ -74,10 +73,7 @@ label {
 #check-in-out {
     text-align: center; 
 }
-.card {
-    width: 450px;
-    align-content: center;
-}
+
 #company-name,
 #user-ratings,
 #phone-num,
@@ -86,7 +82,7 @@ label {
     text-align: right;
     color: green
 }
-#check-list,
+
 #list-input{
     max-width: 1000px;
 }
@@ -110,7 +106,22 @@ label {
     font-weight: 700;
     float: right;
 }
-
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.table {
+    background: white;
+}
+#thead {
+    font-weight: 900;
+    font-size: 24px;
+}
+.card {
+    width: 1200px;
+    margin-top: 50px;
+}
 
 
  

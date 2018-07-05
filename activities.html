@@ -12,6 +12,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
 </head>
 
@@ -70,7 +71,7 @@
     </div>
   </header>
 
-
+  <!-- user inputs search for bucket list queries -->
   <br>
   <br>
   <div class="activities-form-page">
@@ -85,37 +86,13 @@
         <button type="submit" class="btn btn-primary" id="sub-btn-act">Submit</button>
         <br>
         <br>
+        <container class="card-magic">
 
-        <div class="card">
-          <img class="card-img-top" src="./assets/images/Singapore.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title" id="business-name">Business Name</h5>
-            <p class="card-text" id="company-name">Crap yo pants Skydive School</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <h5 id="business-1">User Ratings</h5>
-              <p id="user-ratings">4 stars</p>
-            </li>
-            <li class="list-group-item">
-              <h5 id="business-2">Phone</h5>
-              <p id="phone-num">(913)867-5309</p>
-            </li>
-            <li class="list-group-item">
-              <h5 id="business-3">Hours</h5>
-              <p id="hours-op">8am-9pm</p>
-            </li>
-            <li class="list-group-item">
-              <h5 id="business-4">Price</h5>
-              <p id="price">$250 example</p>
-            </li>
-          </ul>
-          <div class="card-body">
-            <button type="submit" class="btn btn-primary" id="buckit-add-btn">Add to Bucket</button>
-          </div>
-        </div>
+        </container>
       </div>
+
     </div>
+  </div>
   </div>
 
 
@@ -133,7 +110,8 @@
 
 
 
-  <!-- <script type="text/javascript" src="./assets/javascript/app.js"></script> -->
+
+  <script type="text/javascript" src="./assets/javascript/app.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
