@@ -64,22 +64,21 @@ $(document).ready(function () {
     dataBase.ref().on("child_added", function (childSnapshot) {
         var searchLocation = childSnapshot.val().destinationCity;
 
-
+        jQuery.ajaxPrefilter(function (options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+            }
+        });
         $("#sub-btn-act").on("click", function () {
-            jQuery.ajaxPrefilter(function (options) {
-                if (options.crossDomain && jQuery.support.cors) {
-                    options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-                }
-            });
 
-//Yelp API
+            //Yelp API
             var searchTerm = $('#list-input') //may need to change the code of what the variable is equal to
             var searchLocation = childSnapshot.val().destinationCity; //may need to change based on firebase
 
             retrieveYelpResults(searchTerm, searchLocation).then(handleYelpSearchResults);
 
             function retrieveYelpResults(searchTerm, searchLocation) {
-                
+
                 var qURL = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(searchTerm)}&location=${encodeURIComponent(searchLocation)}&limit=8`;
 
                 var token = 'KJ_7-uskE47z1-8JIMTR6ASNgy3sh0yzqZWxjlPwTNF8NzO4h2DFrVGiIcl5lz2Jp38QGWQbfzT1fLpR_K0DeD9FgdugoL33W_AM9DfcGAOPmfI6HvtpNguty4s1W3Yx'
@@ -120,31 +119,31 @@ $(document).ready(function () {
             };
             //Google Maps API
             var cityDesitination = "NYC";
-var stateDesitination = "NY";
+            var stateDesitination = "NY";
 
-retrieveLocation(cityDesitination, stateDesitination).then(handleGoogleMapResult)    
+            retrieveLocation(cityDesitination, stateDesitination).then(handleGoogleMapResult)
 
-//}) 
-//setting up function to retrieve the location for the ajax call
-function retrieveLocation(cityDesitination, stateDesitination) {
-    var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityDesitination)},${encodeURIComponent(stateDesitination)}&key=AIzaSyA8Ku_LYnFyDAGVSwp2krC0JldG_Pif7Hg`;
-    //ajax call for google maps API
-    return $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-}
-//function to pass our ajax call response into handleGoogleMapsResult
-function handleGoogleMapResult(response) {
-    console.log(JSON.stringify(response, null, 2))
-}
-function myMap() {
-    var mapProp= {
-        center:new google.maps.LatLng(51,-0.120850),
-        zoom:5,
-    };
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
+            //}) 
+            //setting up function to retrieve the location for the ajax call
+            function retrieveLocation(cityDesitination, stateDesitination) {
+                var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityDesitination)},${encodeURIComponent(stateDesitination)}&key=AIzaSyA8Ku_LYnFyDAGVSwp2krC0JldG_Pif7Hg`;
+                //ajax call for google maps API
+                return $.ajax({
+                    url: queryURL,
+                    method: "GET",
+                })
+            }
+            //function to pass our ajax call response into handleGoogleMapsResult
+            function handleGoogleMapResult(response) {
+                console.log(JSON.stringify(response, null, 2))
+            }
+            function myMap() {
+                var mapProp = {
+                    center: new google.maps.LatLng(51, -0.120850),
+                    zoom: 5,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            }
 
 
             $("#sub-btn-act-1").on("click", function () {
