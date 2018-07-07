@@ -122,6 +122,23 @@ label {
     width: 1200px;
     margin-top: 50px;
 }
+#reset {
+    background: red;
+}
+td {
+    text-align: left;
+}
+#map {
+    height: 400px;
+    width: 1400px;
+}
+
+
+
+
+
+
+
 
 
  
