@@ -13,7 +13,29 @@ $(document).ready(function () {
 
     var dataBase = firebase.database();
 
+
     // 2. Adding Info
+
+    $('#sub-btn-home').on("click", function () {
+
+        var destinationCity = $("#destinationCity").val().trim();
+        var destinationCountry = $("#destinationCountry").val().trim();
+        var originCity = $("#originCity").val().trim();
+        var originCountry = $("#originCountry").val().trim();
+        var startDate = $("#startDate").val().trim();
+        var endDate = $("#endDate").val().trim();
+        var destination = {
+            destinationCity: destinationCity,
+            destinationCountry: destinationCountry,
+            originCity: originCity,
+            originCountry: originCountry,
+            startDate: startDate,
+            endDate: endDate
+        }
+        database.ref().set(destination)
+    });
+
+
     $("#sub-btn-home").on("click", function () {
 
         // Grabs user input and assign to variables
@@ -58,7 +80,7 @@ $(document).ready(function () {
 
 
     dataBase.ref().on("child_added", function (childSnapshot) {
-        var searchLocation = childSnapshot.val().destinationCity;
+        var searchLocation = childSnapshot.val().destination.destinationCity;
 
 
         $("#sub-btn-act").on("click", function () {
@@ -141,6 +163,7 @@ $(document).ready(function () {
 
         //google maps api
 
+
         var cityDesitination = "LA";
         var stateDesitination = "CA";
 
@@ -164,9 +187,6 @@ $(document).ready(function () {
 
 
     });
-
-
-
 
 
 });
