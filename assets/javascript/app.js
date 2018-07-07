@@ -36,47 +36,7 @@ $(document).ready(function () {
     });
 
 
-    $("#sub-btn-home").on("click", function () {
-
-        // Grabs user input and assign to variables
-        var companyName = $("#companyName").val().trim();
-        var userRatings = $("#userRatings").val().trim();
-        var userPhone = $("#userPhone").val().trim();
-        var userPrice = $("userPrice").val().trim();
-
-        console.log(companyName);
-        console.log(userRatings);
-        console.log(userPhone);
-        console.log(userPrice);
-
-        // "temporary" card data
-        // push this to firebase
-
-        var newCard = {
-
-            name: companyName,
-            ratings: userRatings,
-            phone: userPhone,
-            price: userPrice
-        }
-
-        newCardData.push(newCard);
-
-
-
-
-        // text-boxes
-        $("#company-name").val("");
-        $("#user-ratings").val("");
-        $("#phone-num").val("");
-        $("#hours-op").val("");
-        $("#price").val("");
-
-        // Prevents page from refreshing
-        return false;
-
-
-    });
+    
 
 
     dataBase.ref().on("child_added", function (childSnapshot) {
