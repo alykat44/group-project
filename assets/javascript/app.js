@@ -57,10 +57,6 @@ $(document).ready(function () {
     });
 
 
-
-
-    var cardArray = []
-
     dataBase.ref().on("child_added", function (childSnapshot) {
         var searchLocation = childSnapshot.val().destinationCity;
 
@@ -72,14 +68,15 @@ $(document).ready(function () {
                 }
             });
 
-//Yelp API
-            var searchTerm = $('#list-input') //may need to change the code of what the variable is equal to
-            var searchLocation = childSnapshot.val().destinationCity; //may need to change based on firebase
+            //Yelp API
+            var searchTerm = $('#list-input').val().trim(); //may need to change the code of what the variable is equal to
+            // var searchLocation = childSnapshot.val().destinationCity; //may need to change based on firebase
+            $('#list-input').val("");
 
             retrieveYelpResults(searchTerm, searchLocation).then(handleYelpSearchResults);
 
             function retrieveYelpResults(searchTerm, searchLocation) {
-                
+
                 var qURL = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(searchTerm)}&location=${encodeURIComponent(searchLocation)}&limit=8`;
 
                 var token = 'KJ_7-uskE47z1-8JIMTR6ASNgy3sh0yzqZWxjlPwTNF8NzO4h2DFrVGiIcl5lz2Jp38QGWQbfzT1fLpR_K0DeD9FgdugoL33W_AM9DfcGAOPmfI6HvtpNguty4s1W3Yx'
@@ -99,105 +96,94 @@ $(document).ready(function () {
 
                 for (var i = 0; i < results.length; i++) {
 
-                    if (results[i].rating >= 4) {
+                    if (results[i].rating >= 2) {
                         var result = results[i];
                         var companyName = result.name;
-                        //var image = result.image_url;
                         var userRatings = result.rating;
                         var userPhone = result.phone;
                         var userPrice = result.price;
                         var url = result.url;
 
-                        $('#company-name').innherHTML(`<a href="${url}">${companyName}</a>`);
 
-                        $("#user-ratings").innerHTML(`<span>${userRatings}</span>`);
-
-                        $("#price").innerHTML(`<span>${userPrice}</span>`);
-
-                        $('#phone-num').innerHTML(`<span>${userPhone}</span>`);
                     }
+
+                    var p = $('<div class="card"><div class="card-body"><h5 class="card-title" id="business-name">Business Name</h5><p class="card-text" id="company-name"><a href=' + url + '>' + companyName + '</a></p></div><ul class="list-group list-group-flush"><li class="list-group-item"><h5 id="business-1">User Ratings</h5><p id="user-ratings">' + userRatings + '</p></li><li class="list-group-item"><h5 id="business-2">Phone</h5><p id="phone-num">' + userPhone + '</p></li><li class="list-group-item"><h5 id="business-4">Price</h5><p id="price">' + userPrice + '</p></li></ul><div class="card-body"><button type="submit" class="btn btn-primary" id="buckit-add-btn">Add to Bucket</button></div></div>');
+
+                    $(".card-magic").append(p);
+
                 }
             };
-            //Google Maps API
-            var cityDesitination = "NYC";
-var stateDesitination = "NY";
 
-retrieveLocation(cityDesitination, stateDesitination).then(handleGoogleMapResult)    
+            $("#reset").on("click", function () {
+                window.location.reload();
+            });
 
-//}) 
-//setting up function to retrieve the location for the ajax call
-function retrieveLocation(cityDesitination, stateDesitination) {
-    var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityDesitination)},${encodeURIComponent(stateDesitination)}&key=AIzaSyA8Ku_LYnFyDAGVSwp2krC0JldG_Pif7Hg`;
-    //ajax call for google maps API
-    return $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-}
-//function to pass our ajax call response into handleGoogleMapsResult
-function handleGoogleMapResult(response) {
-    console.log(JSON.stringify(response, null, 2))
-}
-function myMap() {
-    var mapProp= {
-        center:new google.maps.LatLng(51,-0.120850),
-        zoom:5,
-    };
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-
-
-            $("#sub-btn-act-1").on("click", function () {
-                event.preventDefault();
-                var newInfo = $("#list-input-1").val().trim();
-                console.log(newInfo);
-
-                $("#list-input-1").val("");
-
-                $("tbody").append('<tr><th> <id="checkbox-list"><input type="checkbox" name="myCheckbox" id="check-list"/><td>' + newInfo + "</td>");
-            })
         });
+
+        $("#sub-btn-act-1").on("click", function () {
+            event.preventDefault();
+            var newInfo = $("#list-input-1").val().trim();
+            console.log(newInfo);
+
+            $("#list-input-1").val("");
+
+            $("tbody").append('<tr><td><id="checkbox-list"><input type="checkbox" name="myCheckbox" id="check-list">' + newInfo + "</td>");
+
+            $('#checkbox-list').change(function () {
+
+                if (this.checked) {
+                    $(this).closest('tr').find('td>span').css("text-decoration", "line-through");
+                };
+
+            })
+
+        });
+
+        //google maps api
+
+        var cityDesitination = "LA";
+        var stateDesitination = "CA";
+
+
+        retrieveLocation(cityDesitination, stateDesitination).then(handleGoogleMapResult)
+
+        //}) 
+        //setting up function to retrieve the location for the ajax call
+        function retrieveLocation(cityDesitination, stateDesitination) {
+            var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityDesitination)},${encodeURIComponent(stateDesitination)}&key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I`;
+            //ajax call for google maps API
+            return $.ajax({
+                url: queryURL,
+                method: "GET",
+            })
+        }
+        //function to pass our ajax call response into handleGoogleMapsResult
+        function handleGoogleMapResult(response) {
+            console.log(JSON.stringify(response, null, 2))
+        }
+
+
     });
-// Add card rendered that is added to to the new search
-
-//$('#buckit-add-btn').on('click', function () {
 
 
 
 
 
+});
 
+var latitude = 34.0739747;
+var longitude = -118.3238054;
+var map;
+function initMap() {
 
+    map = new google.maps.Map(document.getElementById('map'), {
 
+        center: { lat: latitude, lng: longitude },
+        zoom: 12
+    });
+    var marker = new google.maps.Marker({ position: { lat: latitude, lng: longitude }, map: map })
+};
 
-// var newSearch = $('input').eq(0).val();
-// cardArray.push(newSearch);
-// renderCard(cardArray, 'searchButton', '#cardArea');
-// return false;
-
-
-
-
-// var businessName = businessname
-// var userRatings = ratings
-// var userPhone = phonenumber
-// var userHours = hours
-// var userPrice = price
-
-// var firebaseName = childSnapshot.val().name;
-// var firebasebusinessName = childSnapshot.val().business;
-// var firebaseuserPhone = childSnapshot.val().phone;
-// var firebaseuserHours = childSnapshot.val().hours;
-// var firebaseuserPrice = childSnapshot.val().price;
-
-
-// // text-boxes
-
-
-// $("#business-1").val("");
-// $("#business-2").val("");
-// $("#business-3").val("");
-// $("#business-4").val("");
 
 
 
