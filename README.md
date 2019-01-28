@@ -4,10 +4,11 @@ Use BuckIt! to create a bucket list trip itenerary. Users can enter info on the 
 
 
 #Technologies Used: 
-HTML
-CSS
-Javascript
-Firebase
-JQuery
-Yelp API
-Google Maps API
+
+1.HTML
+1.CSS
+1.Javascript
+1.Firebase
+1.JQuery
+1.Yelp API
+1.Google Maps API
