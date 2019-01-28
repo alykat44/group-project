@@ -7,5 +7,6 @@ Use BuckIt! to create a bucket list trip itenerary. Users can enter info on the 
 
 HTML, CSS, Javascript, Firebase, JQuery, Yelp API, Google Maps API
 
-# Wesite: https://wustix.github.io/group-project-1-BuckIt/
+# Website: 
+https://wustix.github.io/group-project-1-BuckIt/
 
